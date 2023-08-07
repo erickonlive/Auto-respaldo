@@ -1,6 +1,8 @@
 @echo off
 fn.dll cursor 0
 CD D:\
+set mega=mega_path_installation
+set rar="%programfiles%"\winrar\winrar.exe
 mode con cols=40 lines=20
 title RESPALDO USB
 fn.dll sprite 19 25 13 "MDM CONTINENTAL"
@@ -28,9 +30,9 @@ IF NOT EXIST D:\RESPALDOS\%DATE:~6,4% MD D:\RESPALDOS\%DATE:~6,4% >nul 2>nul
 IF NOT EXIST D:\RESPALDOS\%DATE:~6,4%\%MES% MD E:\%DATE:~6,4%\%MES%
 IF EXIST D:\RESPALDOS\%DATE:~6,4%\%MES%\"%date:~0,2% DE %mes%"\"%date:~0,2% DE %mes%.rar" (NIRCMD INFOBOX "YA HAY UN RESPALDO DE EL DIA %date:~0,2% DE %mes%~NCHECA QUE LA FECHA ESTE BIEN" "ERROR"&exit) ELSE  (MD D:\RESPALDOS\%DATE:~6,4%\%MES%\"%date:~0,2% DE %mes%" >nul 2>nul)
 fn.dll sprite 08 5 0C "Creando archivo de respaldo 1/2"
-"%programfiles%"\winrar\winrar.exe -ibck a -ed sis.rar sis\
+%rar% -ibck a -ed sis.rar sis\
 fn.dll sprite 08 5 0C "Creando archivo de respaldo 2/2"
-"%programfiles%"\winrar\winrar.exe -ibck a -ed sis.rar sis\fts2\
+%rar% -ibck a -ed sis.rar sis\fts2\
 fn.dll sprite 09 15 0C "Finalizando..."
 move sis.rar D:\RESPALDOS\%DATE:~6,4%\%MES%\"%date:~0,2% DE %mes%"\"%date:~0,2% DE %mes%.rar">nul 2>nul
 fn.dll sprite 09 15 0A "Finalizado    "
@@ -40,6 +42,6 @@ fn.dll sleep 3000
 cls
 fn.dll sprite 09 02 0a "Subiendo archivo del %date:~0,2% de %mes%"
 fn.dll sprite 10 02 0a "Esto puede tardar unos minutos"
-D:\gdrive upload -r "D:\RESPALDOS\%DATE:~6,4%\%MES%\%date:~0,2% DE %mes%\%date:~0,2% DE %mes%.rar" -p "Google folder code"
+%mega% put "D:\RESPALDOS\%DATE:~6,4%\%MES%\%date:~0,2% DE %mes%\%date:~0,2% DE %mes%.rar"
 fn.dll sprite 09 01 0C "El archivo a sido subido"
 fn.dll sleep 3000
