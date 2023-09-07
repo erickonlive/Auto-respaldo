@@ -1,14 +1,19 @@
 @echo off
 fn.dll cursor 0
 CD D:\
+::indica la ruta de instalacion de megacmd
 set mega=mega_path_installation
+::indica la ruta de un compresor/descompresor en este casi winrar
 set rar="%programfiles%"\winrar\winrar.exe
-mode con cols=40 lines=20
 title RESPALDO USB
-fn.dll sprite 19 25 13 "MDM CONTINENTAL"
+::fn.dll es una libreria externa para imprimir caracteres y otras funciones en la consola
+fn.dll sprite 19 25 13 "Respaldo autonomo"
 :CHECK
 fn.dll sleep 500
+::espesificar memoria usb o disco local a donde mandar el resplado comprimido
+::esperara hasta que dicha unidad este presente para continuar
 IF NOT EXIST d:\ fn.dll sprite 03 08 0A "Inserte una memoria USB"&goto check
+::Establece el nombre del mes
 IF %date:~3,2%==01 set mes=ENERO
 IF %date:~3,2%==02 set mes=FEBRERO
 IF %date:~3,2%==03 set mes=MARZO
