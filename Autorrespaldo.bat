@@ -3,7 +3,7 @@ fn.dll cursor 0
 CD D:\
 ::indica la ruta de instalacion de megacmd
 set mega=mega_path_installation
-::indica la ruta de un compresor/descompresor en este casi winrar
+::indica la ruta de un compresor/descompresor en este caso winrar
 set rar="%programfiles%"\winrar\winrar.exe
 title RESPALDO USB
 ::fn.dll es una libreria externa para imprimir caracteres y otras funciones en la consola
