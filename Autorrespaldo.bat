@@ -7,7 +7,7 @@ set mega=mega_path_installation
 set rar="%programfiles%"\winrar\winrar.exe
 title RESPALDO USB
 ::fn.dll es una libreria externa para imprimir caracteres y otras funciones en la consola
-fn.dll sprite 19 25 13 "Respaldo autonomo"
+fn.dll sprite 19 25 13 "Respaldo autonomatico"
 :CHECK
 fn.dll sleep 500
 ::espesificar memoria usb o disco local a donde mandar el resplado comprimido
